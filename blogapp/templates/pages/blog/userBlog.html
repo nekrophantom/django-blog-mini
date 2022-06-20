@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-md-12 col-xl-12">
+
+        {% for userblog in blog %}
+        <div class="list-group pt-3">
+            <a href="{% url 'blog' userblog.id %}" class="list-group-item list-group-item-action" aria-current="true">
+              <div class="d-flex justify-content-between">
+                <h5 class="mb-1">{{ userblog.title }}</h5>
+                <small>
+                    Created : {{ userblog.created | date:'d-m-Y' }}<br>
+                    Updated : {{ userblog.updated | date:'d-m-Y' }}
+                </small>
+              </div>
+              <p class="mb-1">{{ userblog.subtitle }}</p>
+            </a>
+
+            <div class="pt-1 text-end">
+                <a href="{% url 'update-blog' userblog.id %}" class="btn btn-warning">
+                    Update
+                </a>
+                <a href="{% url 'delete-blog' userblog.id %}" class="btn btn-danger">
+                    Delete
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    
+    </div>
+</div>
+{% endblock content %}

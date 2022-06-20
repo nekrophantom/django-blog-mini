@@ -1,0 +1,17 @@
+
+{% extends 'index.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row">
+    <div class="col-12 col-md-12 col-xl-12">
+        <form action="" method="POST">
+            {% csrf_token %}
+            Are you sure want to delete this "{{ blog.title }}" blog ? <br>
+            <input class="btn btn-primary mt-3" type="submit" name="Confirm">
+          <a href="{% url 'my-blog' blog.user_id %}" class="btn btn-danger text-center mt-3 ">Back</a>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

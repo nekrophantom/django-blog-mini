@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-md-12 col-xl-12">
+        <div class="card">
+            {% load static %}
+            <img src="{% static 'images/test.jpg' %}" class="card-img-top w-50 rounded d-block mx-auto" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ blog.title }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ blog.subtitle }}</h6>
+              <p class="card-text">{{ blog.post }}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

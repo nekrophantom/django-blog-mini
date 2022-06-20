@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row">
+    <div class="col-12 col-md-12 col-xl-12">
+        <div class="card">
+          {% if page != 'update' %}
+            <div class="card-header bg-dark text-white text-center">
+              Login
+            </div>
+            {% else %}
+            <div class="card-header bg-dark text-white text-center">
+              Update
+            </div>
+            {% endif %}
+            <div class="card-body">
+              {% include 'partials/messages.html' %}
+              <form action="" method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}
+              <button type="submit" class="btn btn-primary text-center mt-3 w-100">Submit</button>
+            </form>
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endblock content %}

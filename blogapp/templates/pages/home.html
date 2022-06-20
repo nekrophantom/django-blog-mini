@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h4 class="text-center">Blog App Django</h4>
+<hr>
+
+<div class="row">
+    <div class="col-12 col-md-12 col-xl-12">
+
+        {% for blog in blogs %}
+        <div class="list-group pt-3">
+            <a href="{% url 'blog' blog.id %}" class="list-group-item list-group-item-action" aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ blog.title }}</h5>
+                <small>{{blog.updated | timesince }} ago</small>
+              </div>
+              <p class="mb-1">{{ blog.subtitle }}</p>
+              <small>Author : {{ blog.user.name }}</small>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
